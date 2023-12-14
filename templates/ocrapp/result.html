@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>OCR Web App Result</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+   <style>
+      body {
+   font-family: Arial, sans-serif;
+   background-color: #f5f5f5;
+   text-align: center;
+}
+
+h1 {
+   background-color: #007BFF;
+   color: white;
+   padding: 20px;
+}
+
+form {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #fff;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+   display: none;
+}
+
+button[type="submit"] {
+   background-color: #007BFF;
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   cursor: pointer;
+}
+
+button[type="submit"]:hover {
+   background-color: #0056b3;
+}
+.result-container {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #fff;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   margin-top: 20px;
+}
+
+/* Стили для текста результата */
+.result-text {
+   font-size: 18px;
+   margin: 10px 0;
+}
+
+/* Стили для ссылки "Recognize More Text" */
+a.recognize-more {
+   color: #007BFF;
+   text-decoration: none;
+   display: block;
+   margin-top: 20px;
+}
+
+a.recognize-more:hover {
+   text-decoration: underline;
+}
+   </style>
+   
+</head>
+
+<body>
+   {% load static %}
+   <!DOCTYPE html>
+   <html>
+   
+   <head>
+      <title>OCR Web App Result</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+   </head>
+   
+   <body>
+      <h1>Cервис по распознаванию текста из изображений</h1>
+      <p>который поможет получить напечатанный текст из фотографий</p>
+      <div class="result-container">
+         <p class="result-text">Результат</p>
+      <pre>{{ result|join:" " }}</pre> {# Применяем фильтр join, чтобы объединить элементы в строку #}
+         <a href="{% url 'upload_image' %}" class="recognize-more">Вернуть и попробовать еще</a>
+      </div>
+      <script src="{% static 'js/script.js' %}"></script>
+   </body>
+</html>
